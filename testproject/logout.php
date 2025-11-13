@@ -12,6 +12,7 @@ $params['secure'], $params['httponly']
 );
 }
 session_destroy();
+
 flash('success', 'You have been logged out.');
 redirect('login.php');
 ?>
