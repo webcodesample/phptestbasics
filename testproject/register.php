@@ -1,6 +1,5 @@
 <?php
-require_once 'dbcon.php';
-require_once 'helpers.php';
+require_once 'common_include.php';
 
 
 // If form submitted
@@ -66,31 +65,37 @@ redirect('register.php');
 }
 }
 
-
+include_once 'head.php';
 // Show registration form (simple HTML)
 ?>
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Register</title>
-</head>
-<body>
-<h2>Register</h2>
+
+<h4 class="text-center text-success mt-5 mb-2">Register</h4>
 <?php if ($m = flash('error')): ?>
-<div style="color: red"><?=htmlspecialchars($m)?></div>
+<div class="text-center alert alert-danger"><?=htmlspecialchars($m)?></div>
 <?php endif; ?>
 <?php if ($m = flash('success')): ?>
-<div style="color: green"><?=htmlspecialchars($m)?></div>
+<div class="text-center alert alert-success"><?=htmlspecialchars($m)?></div>
 <?php endif; ?>
 
+<div class="container border border-danger p-5 rounded-3 my-2" style="width:100%; max-width:400px;">
 
 <form method="post" action="register.php">
-<label>Email: <input type="email" name="email" required></label><br>
-<label>Password: <input type="password" name="password" required></label><br>
-<label>Confirm: <input type="password" name="password_confirm" required></label><br>
-<button type="submit">Register</button>
+	<div class="d-flex justify-content-center align-items-center gap-2 m-1">
+	<div style="width:80px;"><h6>Email:</h6></div>
+	<input type="email" class="form-control w-auto" name="email" required>
+	</div>
+	<div class="d-flex justify-content-center align-items-center gap-2 m-1">
+	<div style="width:80px;"><h6>Password:</h6></div>
+	<input type="password" class="form-control w-auto" name="password" required>
+	</div>
+	<div class="d-flex justify-content-center align-items-center gap-2 m-1">
+	<div style="width:80px;"><h6>Confirm:</h6></div>
+	<input type="password" class="form-control w-auto" name="password_confirm" required></label>
+	</div>
+	<div class="d-flex flex-wrap justify-content-center align-items-center gap-2 m-1">
+	<button class="btn btn-sm btn-success m-1" type="submit">Register</button><br>
+	<a href="login.php">Already have an account? Login</a>
+	</div>
 </form>
-<p><a href="login.php">Already have an account? Login</a></p>
-</body>
-</html>
+</div>
+<?php include_once 'foot.php' ?>
