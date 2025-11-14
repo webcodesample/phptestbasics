@@ -7,20 +7,21 @@ require_once 'common_include.php';
 $mail = new PHPMailer(true);
 
 try {
+    $config = parse_ini_file('.env');
     // SMTP settings
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com'; // Your SMTP server
+    $mail->Host       = $config['SMTP_HOST']; // Your SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'mcbdev2023@gmail.com'; 
-    $mail->Password   = 'eyrhlvjrxmjkvnrk'; // NOT your Gmail password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Username   = $config['SMTP_USERNAME']; 
+    $mail->Password   = $config['SMTP_PASSWORD']; // NOT your Gmail password
+    $mail->SMTPSecure = $config['SMTP_SECURE'];//PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = $config['SMTP_PORT'];
 
     // Sender
     $mail->setFrom('info@amitsriwastav.com', 'Amit Sriwastav');
 
     // Receiver
-    $mail->addAddress('as4u.in@gmail.com', 'Receiver Name');
+    $mail->addAddress('as4u.in@gmail.com', 'AS4U India');
 
     // Add CC / BCC if needed
     // $mail->addCC('cc@example.com');

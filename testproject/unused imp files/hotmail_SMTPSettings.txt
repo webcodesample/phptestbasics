@@ -1,0 +1,5 @@
+Host: smtp.office365.com
+Port: 587
+SMTPSecure: TLS
+Username: your Hotmail/Outlook email
+Password: your Hotmail/Outlook email password (NOT App Password)
