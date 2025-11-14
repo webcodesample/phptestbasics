@@ -1,0 +1,5 @@
+Host: smtp.gmail.com
+Port: 587
+SMTPSecure: TLS
+Username: your Gmail
+Password: Gmail App Password (not login password)

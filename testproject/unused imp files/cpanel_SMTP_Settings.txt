@@ -1,0 +1,4 @@
+Host: mail.yourdomain.com
+Port: 587 or 465
+Username: full email (e.g., noreply@yourdomain.com)
+Password: your mailbox password
