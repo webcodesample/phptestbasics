@@ -1,0 +1,3 @@
+<?php
+eval('<?php echo "test" ?>');
+?>

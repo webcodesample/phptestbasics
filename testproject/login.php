@@ -16,7 +16,7 @@ redirect('login.php');
 
 
 $stmt = $conn->prepare('SELECT id, password FROM users_cred WHERE email = ?');
-$stmt->bind_param('s', $email);
+$stmt->bind_param($email);
 $stmt->execute();
 $stmt->bind_result($id, $passwordHash);
 if ($stmt->fetch()) {
